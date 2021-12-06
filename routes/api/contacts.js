@@ -8,6 +8,8 @@ const { contacts: ctrl } = require("../../controllers");
 
 router.get("/", auth, ctrlWrapper(ctrl.getAll));
 
+router.get("/favorite", auth, ctrlWrapper(ctrl.getAllByFavorite));
+
 router.get("/:contactId", ctrlWrapper(ctrl.getById));
 
 router.post("/", auth, validation(joiSchema), ctrlWrapper(ctrl.add));
